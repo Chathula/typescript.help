@@ -1,5 +1,5 @@
 import { useState, ReactNode } from 'react'
-import { Comments } from 'pliny/comments'
+import dynamic from 'next/dynamic'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog, Authors } from 'contentlayer/generated'
 import Link from '@/components/Link'
@@ -29,6 +29,11 @@ interface LayoutProps {
   prev?: { path: string; title: string }
   children: ReactNode
 }
+
+const DynamicComments = dynamic(() => import('pliny/comments').then((mod) => mod.Comments), {
+  loading: () => <p>Loading comments...</p>,
+  ssr: false,
+})
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
   const { filePath, path, slug, date, title, tags } = content
@@ -108,10 +113,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
                   id="comment"
                 >
-                  {!loadComments && (
-                    <button onClick={() => setLoadComments(true)}>Load Comments</button>
-                  )}
-                  {loadComments && <Comments commentsConfig={siteMetadata.comments} slug={slug} />}
+                  <DynamicComments commentsConfig={siteMetadata.comments} slug={slug} />
                 </div>
               )}
             </div>
