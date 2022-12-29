@@ -61,7 +61,7 @@ const siteMetadata = {
       // please provide a link below to your custom theme css file.
       // example: https://giscus.app/themes/custom_example.css
       themeURL: '',
-      Addlang: 'en',
+      lang: 'en',
     },
   },
   // search: {
