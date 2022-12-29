@@ -3,6 +3,7 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
   title: 'TypeScript.help',
+  author: 'TypeScript.help',
   headerTitle: 'TypeScript.help',
   description: 'Share knowledge about TypeScript',
   language: 'en-us',
@@ -13,7 +14,7 @@ const siteMetadata = {
   image: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
   email: 'info@typescript.help',
-  github: '',
+  github: 'https://github.com',
   // twitter: 'https://twitter.com/Twitter',
   // facebook: 'https://facebook.com',
   // youtube: 'https://youtube.com',
