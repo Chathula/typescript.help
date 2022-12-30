@@ -12,7 +12,7 @@ const siteMetadata = {
   siteRepo: 'https://github.com/chathula/typescript.help',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/logo.png',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '/static/images/social-card.png',
   email: 'info@typescript.help',
   github: 'https://github.com',
   // twitter: 'https://twitter.com/Twitter',
