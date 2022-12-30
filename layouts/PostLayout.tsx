@@ -32,7 +32,7 @@ interface LayoutProps {
 
 const DynamicComments = dynamic(() => import('pliny/comments').then((mod) => mod.Comments), {
   loading: () => <p>Loading comments...</p>,
-  ssr: false,
+  ssr: true,
 })
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
