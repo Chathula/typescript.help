@@ -36,9 +36,7 @@ const DynamicComments = dynamic(() => import('pliny/comments').then((mod) => mod
 })
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, tags } = content
-  const basePath = path.split('/')[0]
-  const [loadComments, setLoadComments] = useState(false)
+  const { path, slug, date, title, tags } = content
 
   return (
     <SectionContainer>
@@ -122,7 +120,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </div>
               <div className="pt-4 xl:pt-8">
                 <Link
-                  href={`/${basePath}`}
+                  href={`/`}
                   className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                   aria-label="Back to the blog"
                 >
