@@ -1,0 +1,53 @@
+---
+title: 'Introduction to Types and Type Declarations in TypeScript'
+date: '2022-12-30'
+tags: ['typescript', 'javascript']
+draft: false
+summary: TypeScript is a superset of JavaScript that adds static typing and other language features. Type declarations allow you to specify the expected type of a variable, function, or other value. This can help you catch errors at compile-time and make it easier to reason about your code. TypeScript includes built-in types and also allows you to create custom types using interfaces and classes. Using type declarations can help you write more predictable and reliable code.
+---
+
+TypeScript is a popular superset of JavaScript that adds features such as static typing, class-based object-oriented programming, and other language features that can make it easier to build large and complex applications. If you're new to TypeScript, or just want to learn more about its core principles, this tutorial is for you.
+
+One of the most important concepts in TypeScript is the idea of "types." In JavaScript, variables can hold values of any type, which can make it difficult to reason about your code and catch bugs early on. This is because JavaScript is a dynamically-typed language, which means that the type of a value is determined at runtime rather than at compile-time. This can lead to issues such as runtime errors when you try to call a method on an object that doesn't have that method, or when you try to access a property on an object that doesn't have that property.
+
+TypeScript introduces the concept of type declarations, which allow you to specify the expected type of a variable, function, or other value. By declaring the types of your variables, function parameters, and return values, you can catch many common errors at compile-time rather than runtime. This can save you time and effort debugging your code, and can make it easier to reason about the behavior of your code.
+
+Here's an example of a simple type declaration in TypeScript:
+
+```ts
+let message: string = "Hello, world!";
+```
+
+In this example, we've declared a variable called message and specified that it should hold a string value. If we tried to assign a value of a different type to message, TypeScript would give us an error.
+
+```ts
+let message: string = "Hello, world!";
+
+message = 123; // error: Type '123' is not assignable to type 'string'
+```
+
+Type declarations can also be used in function parameters and return types. For example:
+
+```ts
+function greet(name: string): string {
+  return `Hello, ${name}!`;
+}
+```
+
+In this example, we've declared that the greet function should accept a single string parameter called name, and that it should return a string value. If we tried to call the greet function with a value of a different type, or if we tried to return a value of a different type, TypeScript would give us an error.
+
+```ts
+function greet(name: string): string {
+  return `Hello, ${name}!`;
+}
+
+greet(123); // error: Argument of type '123' is not assignable to parameter of type 'string'
+
+function greet(name: string): string {
+  return 123; // error: Type '123' is not assignable to type 'string'
+}
+```
+
+TypeScript includes a number of built-in types that you can use in your type declarations, including string, number, boolean, and more. You can also create your own custom types using interfaces and classes, which we'll explore in more detail later on.
+
+It's important to note that TypeScript's type system is optional, and you can choose not to use it if
