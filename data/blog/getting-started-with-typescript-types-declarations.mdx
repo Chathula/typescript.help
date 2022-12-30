@@ -50,4 +50,46 @@ function greet(name: string): string {
 
 TypeScript includes a number of built-in types that you can use in your type declarations, including string, number, boolean, and more. You can also create your own custom types using interfaces and classes, which we'll explore in more detail later on.
 
-It's important to note that TypeScript's type system is optional, and you can choose not to use it if
+It's important to note that TypeScript's type system is optional,  you prefer. However, using type declarations can make your code easier to read and maintain, and can help you catch errors early on in the development process.
+
+In addition to built-in types and custom types, TypeScript also supports the use of type aliases, which allow you to give a new name to an existing type. This can be useful when you want to use a complex type in multiple places and want to give it a more descriptive name.
+
+Here's an example of how you might use a type alias:
+
+```ts
+type UserId = string;
+
+let userId: UserId = "123";
+```
+
+In this example, we've created a type alias called UserId and given it the name string. We can then use UserId just like any other type, in this case to declare the type of the userId variable.
+
+Another useful feature of TypeScript is union types, which allow you to specify that a value can be one of multiple types. This can be useful when you have a value that can be one of several different types, but you don't want to use the any type (which is a type that can hold any value).
+
+Here's an example of how you might use a union type:
+
+```ts
+let value: string | number;
+
+value = "Hello, world!";
+console.log(value); // "Hello, world!"
+
+value = 123;
+console.log(value); // 123
+```
+
+In this example, we've declared the value variable to be a union type of string and number. This means that it can hold either a string value or a number value, but not any other type of value.
+
+Finally, TypeScript also supports type inference, which is the process of automatically determining the type of a value based on how it is used. This can be useful when you don't want to explicitly specify the type of a value, or when you want the type of a value to be determined based on the context in which it is used.
+
+Here's an example of how type inference works in TypeScript:
+
+```ts
+let message = "Hello, world!";
+
+message = 123; // error: Type '123' is not assignable to type 'string'
+```
+
+In this example, we haven't explicitly declared the type of the message variable. However, TypeScript is able to infer that it should be a string based on the initial value that we assign to it. If we try to assign a value of a different type to message, TypeScript will give us an error.
+
+To sum up, TypeScript's type system is a powerful tool for writing predictable, reliable code. By using type declarations, custom types, union types, and type inference, you can catch errors early on and make it easier to reason about the behavior of your code. Whether you're new to TypeScript or an experienced developer, these concepts are worth learning and using in your projects.
