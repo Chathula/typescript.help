@@ -13,7 +13,7 @@ import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 
 const discussUrl = (path) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `${siteMetadata.siteUrl}/${path.replace('/blog', '')}`
+    `${siteMetadata.siteUrl}/${path.replace('blog/', '')}`
   )}`
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
@@ -102,7 +102,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           Previous Article
                         </h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/${prev.path.replace('/blog', '')}`}>{prev.title}</Link>
+                          <Link href={`/${prev.path.replace('blog/', '/')}`}>{prev.title}</Link>
                         </div>
                       </div>
                     )}
@@ -112,7 +112,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           Next Article
                         </h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/${next.path.replace('/blog', '')}`}>{next.title}</Link>
+                          <Link href={`/${next.path.replace('blog/', '/')}`}>{next.title}</Link>
                         </div>
                       </div>
                     )}
