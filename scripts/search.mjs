@@ -7,7 +7,13 @@ const search = () => {
   if (siteMetadata?.search?.kbarConfig?.searchDocumentsPath) {
     writeFileSync(
       `public/${siteMetadata.search.kbarConfig.searchDocumentsPath}`,
-      JSON.stringify(allCoreContent(allBlogs))
+      JSON.stringify(
+        allCoreContent(
+          allBlogs.map((blog) => {
+            return { ...blog, path: `/${blog.slug}` }
+          })
+        )
+      )
     )
     console.log('Local search index generated...')
   }
