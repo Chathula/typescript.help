@@ -4,16 +4,14 @@ import { allBlogs } from '../.contentlayer/generated/index.mjs'
 import siteMetadata from '../data/siteMetadata.js'
 
 const search = () => {
+  const posts = allBlogs.map((blog) => {
+    return { ...blog, path: blog.slug, _raw: { ...blog._raw, flattenedPath: blog.slug } }
+  })
+
   if (siteMetadata?.search?.kbarConfig?.searchDocumentsPath) {
     writeFileSync(
       `public/${siteMetadata.search.kbarConfig.searchDocumentsPath}`,
-      JSON.stringify(
-        allCoreContent(
-          allBlogs.map((blog) => {
-            return { ...blog, path: `/${blog.slug}` }
-          })
-        )
-      )
+      JSON.stringify(allCoreContent(posts))
     )
     console.log('Local search index generated...')
   }
