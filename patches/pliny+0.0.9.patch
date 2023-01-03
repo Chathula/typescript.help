@@ -23,3 +23,28 @@ index e140360..9c6e3b6 100644
        <description>${escape(config.description)}</description>
        <language>${config.language}</language>
        <managingEditor>${config.email} (${config.author})</managingEditor>
+diff --git a/node_modules/pliny/utils/generate-rss.js b/node_modules/pliny/utils/generate-rss.js
+index 55d6241..3f26aa7 100644
+--- a/node_modules/pliny/utils/generate-rss.js
++++ b/node_modules/pliny/utils/generate-rss.js
+@@ -6,9 +6,9 @@ import GithubSlugger from 'github-slugger';
+ 
+ var generateRssItem = (config, post) => `
+   <item>
+-    <guid>${config.siteUrl}/blog/${post.slug}</guid>
++    <guid>${config.siteUrl}/${post.slug}</guid>
+     <title>${escape(post.title)}</title>
+-    <link>${config.siteUrl}/blog/${post.slug}</link>
++    <link>${config.siteUrl}/${post.slug}</link>
+     ${post.summary && `<description>${escape(post.summary)}</description>`}
+     <pubDate>${new Date(post.date).toUTCString()}</pubDate>
+     <author>${config.email} (${config.author})</author>
+@@ -19,7 +19,7 @@ var generateRss = (config, posts, page = "feed.xml") => `
+   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+     <channel>
+       <title>${escape(config.title)}</title>
+-      <link>${config.siteUrl}/blog</link>
++      <link>${config.siteUrl}</link>
+       <description>${escape(config.description)}</description>
+       <language>${config.language}</language>
+       <managingEditor>${config.email} (${config.author})</managingEditor>
