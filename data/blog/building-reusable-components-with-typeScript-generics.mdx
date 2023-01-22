@@ -21,7 +21,7 @@ function sortArray<T>(arr: T[]): T[] {
 }
 ```
 
-In this example, T is the type parameter and it can be any data type. When we call the function, we need to specify the data type that we want to use. For example, to sort an array of numbers, we would call the function like this:
+In this example, `T` is the type parameter and it can be any data type. When we call the function, we need to specify the data type that we want to use. For example, to sort an array of numbers, we would call the function like this:
 
 ```ts
 const numbers = [3, 1, 4, 2];
@@ -45,7 +45,7 @@ class DataStorage<T> {
     }
 }
 ```
-In this example, we have defined a type parameter T for the class and used it to define the data property and the constructor parameter. When we create an instance of the class, we need to specify the data type that we want to use. For example, to create an instance of the class that stores a string, we would call it like this:
+In this example, we have defined a type parameter `T` for the class and used it to define the data property and the constructor parameter. When we create an instance of the class, we need to specify the data type that we want to use. For example, to create an instance of the class that stores a string, we would call it like this:
 
 ```ts
 const storage = new DataStorage<string>("Hello, World!");
@@ -79,7 +79,7 @@ export class ListComponent<T> {
 }
 ```
 
-In this example, we have defined a type parameter T for the component and used it to define the items property and the addItem() method parameter. When we use this component, we need to specify the data type that we want to use. For example, to create an instance of the component that displays a list of strings, we would call it like this:
+In this example, we have defined a type parameter `T` for the component and used it to define the items property and the `addItem()` method parameter. When we use this component, we need to specify the data type that we want to use. For example, to create an instance of the component that displays a list of strings, we would call it like this:
 
 ```html
 <list-component>
