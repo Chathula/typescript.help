@@ -24,8 +24,8 @@ function sortArray<T>(arr: T[]): T[] {
 In this example, T is the type parameter and it can be any data type. When we call the function, we need to specify the data type that we want to use. For example, to sort an array of numbers, we would call the function like this:
 
 ```ts
-let numbers = [3, 1, 4, 2];
-let sortedNumbers = sortArray<number>(numbers);
+const numbers = [3, 1, 4, 2];
+const sortedNumbers = sortArray<number>(numbers);
 ```
 
 Notice that we have used the `<number>` to specify the type of data we want to sort, this is called type argument.
