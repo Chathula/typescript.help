@@ -1,0 +1,108 @@
+---
+title: 'Building Reusable Components with TypeScript Generics'
+date: '2023-01-29'
+tags: ['typescript', 'javascript', 'angular']
+draft: false
+summary: Learn how to use TypeScript Generics to build reusable and maintainable components for your next project. Improve code readability, prevent unexpected behavior and bugs, and make your development process more efficient and productive.
+---
+
+When it comes to building robust and maintainable software, one of the key principles to follow is to write reusable code. Generics in TypeScript allow us to do just that by enabling us to write code that can work with any data type. In this article, we will explore how to use TypeScript generics to build reusable components that can be used in any project.
+
+Before diving into the specifics of generics, let's first understand what they are and why they are useful. Generics are a way to define a placeholder for a specific type of data that can be used in a class, interface, or function. This allows us to write code that can work with any data type without having to write a separate version of the code for each data type.
+
+For example, let's say we want to create a function that sorts an array of numbers. Without generics, we would have to write a separate function for each data type that we want to sort, such as numbers, strings, and objects. With generics, we can write one function that can sort an array of any data type.
+
+To use generics in TypeScript, we first need to define a type parameter by placing it between angle brackets (`<>`) after the function or class name. For example, the following code defines a generic function called "sortArray":
+
+```ts
+function sortArray<T>(arr: T[]): T[] {
+    // Code to sort the array goes here
+    return sortedArray;
+}
+```
+
+In this example, T is the type parameter and it can be any data type. When we call the function, we need to specify the data type that we want to use. For example, to sort an array of numbers, we would call the function like this:
+
+```ts
+let numbers = [3, 1, 4, 2];
+let sortedNumbers = sortArray<number>(numbers);
+```
+
+Notice that we have used the `<number>` to specify the type of data we want to sort, this is called type argument.
+
+Generics can also be used in classes and interfaces. For example, the following code defines a generic class called "DataStorage" that can store and retrieve data of any type:
+
+```ts
+class DataStorage<T> {
+    private data: T;
+
+    constructor(data: T) {
+        this.data = data;
+    }
+
+    getData(): T {
+        return this.data;
+    }
+}
+```
+In this example, we have defined a type parameter T for the class and used it to define the data property and the constructor parameter. When we create an instance of the class, we need to specify the data type that we want to use. For example, to create an instance of the class that stores a string, we would call it like this:
+
+```ts
+const storage = new DataStorage<string>("Hello, World!");
+```
+
+One of the most powerful features of generics is that they allow us to create reusable components that can be used in any project. For example, let's say we have a component that displays a list of items. Without generics, we would have to write a separate version of the component for each data type that we want to display, such as numbers, strings, and objects. With generics, we can write one component that can display a list of items of any data type.
+
+To create a reusable component with generics, we first need to define a type parameter for the component and use it to define the data that the component will work with. For example, the following code defines a generic component called `ListComponent` that can display a list of items of any data type:
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'list-component',
+  template: `
+    <ul>
+      <li *ngFor="let item of items">{{ item }}</li>
+    </ul>
+  `
+})
+export class ListComponent<T> {
+  items: T[];
+
+  constructor() {
+    this.items = [];
+  }
+
+  addItem(item: T) {
+    this.items.push(item);
+  }
+}
+```
+
+In this example, we have defined a type parameter T for the component and used it to define the items property and the addItem() method parameter. When we use this component, we need to specify the data type that we want to use. For example, to create an instance of the component that displays a list of strings, we would call it like this:
+
+```html
+<list-component>
+  <list-component>
+    <list-component>hello</list-component>
+    <list-component>world</list-component>
+  </list-component>
+</list-component>
+```
+
+As we can see, using generics in TypeScript allows us to write reusable code that can work with any data type. This makes our code more flexible and maintainable, and it also makes it easier to reuse our components in other projects.
+
+In addition to the examples shown above, TypeScript Generics can be used in many other ways such as:
+
+- Constraining the types that the generic can be used with using the extends keyword.
+- Creating a more complex generic types using multiple type parameters.
+- Using default types for generics
+- And more.
+
+In addition to the benefits mentioned above, using TypeScript Generics can also help improve the readability and understandability of your code. When using generics, the data types of the variables and parameters are clearly defined, making it easier for other developers to understand the purpose and functionality of your code. This can also make it easier to catch errors and bugs early on in the development process.
+
+Another benefit of using TypeScript Generics is that it allows you to write code that is more type-safe. When working with a specific data type, you can be sure that the code will only work with that data type, which can help prevent unexpected behavior or errors. This can save a lot of time and effort in debugging and testing your code.
+
+It's also worth noting that TypeScript Generics can be used in combination with other advanced features such as Decorators, Mixins and more. For example, using a decorator with a generic class can add some additional functionality to the class without modifying the code.
+
+In conclusion, TypeScript Generics is a powerful feature that allows developers to write reusable, flexible and maintainable code. It enables us to create reusable components that can be used in any project, making our development process more efficient and productive. It improves code readability and understandability, prevents unexpected behavior and bugs, and can be used in combination with other advanced features. It is definitely worth learning and understanding how to use it in your next project.
