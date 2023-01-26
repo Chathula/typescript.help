@@ -49,10 +49,15 @@ index 55d6241..3f26aa7 100644
        <language>${config.language}</language>
        <managingEditor>${config.email} (${config.author})</managingEditor>
 diff --git a/node_modules/pliny/utils/generate-sitemap.js b/node_modules/pliny/utils/generate-sitemap.js
-index ff648fe..b4eb3f5 100644
+index ff648fe..7caf0b9 100644
 --- a/node_modules/pliny/utils/generate-sitemap.js
 +++ b/node_modules/pliny/utils/generate-sitemap.js
-@@ -19,11 +19,15 @@ async function generateSitemap(siteUrl, allContents) {
+@@ -15,15 +15,19 @@ async function generateSitemap(siteUrl, allContents) {
+   ]);
+   const sitemap = `
+         <?xml version="1.0" encoding="UTF-8"?>
+-        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
++        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
              ${pages.concat(contentPages).map((page) => {
      const path = page.replace("pages/", "/").replace("public/", "/").replace(/.js|.tsx|.mdx|.md/g, "").replace("/feed.xml", "");
      const route = path === "/index" ? "" : path;
